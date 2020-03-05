@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="button">Get this List</div>
+    <form id=submit action="">
+      <input type="radio" id="WordpressEN" name="cms" value="0" checked/> 
+		<label for="0">WordpressEN</label><br>
+        <input type="radio"  id="WordpressRU" name="cms" value="1" /> 
+		<label for="1">WordpressRU</label><br>
+        <input type="radio"  id="Joomla" name="cms" value="2" /> 
+		<label for="2">Joomla</label><br>
+		<input type="radio"  id="Opencart" name="cms" value="3" /> 
+		<label for="3">Opencart</label><br>
+		<input type="radio"  id="Drupal" name="cms" value="4" /> 
+		<label for="4">Drupal</label><br>
+		<input type="radio"  id="Prestashop" name="cms" value="5" /> 
+		<label for="5">Prestashop</label><br>
+      	<input id="sitename" name="sitename" type="text"><label for="sitename"> Sitename</label><br>
+		<input id="website" name="website" type="text"><label for="website"> Link to install</label><br>
+     	<input id="email" name="email" type="text"><label for="email"> Email admin</label><br>
+		  <br>
+		<input id="database_name" name="database_name" type="text"><label for="database_name"> Database name</label><br>
+		<input id="database_user" name="database_user" type="text"><label for="database_user"> Database user</label><br>
+    	<input id="database_pass" name="database_pass" type="text"><label for="database_pass"> Database password</label><br>
+			  <br>
+      <input name="submit" type="submit">
+    </form>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(e) {
+let radios = document.getElementsByName('cms');
+
+        $('#submit').submit(function() {
+					let cms;
+			for (var i = 0, length = radios.length; i < length; i++) {
+  				if (radios[i].checked) {
+				cms = radios[i].value;
+    			break;
+  				}
+			};
+			
+            let sitename = $('input[name=sitename]').val().split(' ').join('_');
+            let mail = $('input[name=email]').val();
+			let web = $('input[name=website]').val();
+			let dbname = $('input[name=database_name]').val();
+			let dbuser = $('input[name=database_user]').val();
+			let dbpass = $('input[name=database_pass]').val();
+            let dataString = {
+              sitename: sitename,
+              mail: mail,
+              uri: web,
+              name: dbname,
+              user: dbuser,
+              password: dbpass,
+              language: "ru",
+			  cms: cms,
+            };
+			
+            $.ajax({
+                url: "/request",
+                type: "post",
+                data: dataString,
+	               dataType: "json",
+                cache: false,
+                success: function(html) {
+                    if (html == 1) {
+                        alert('wyslane');
+                    }
+                    else {
+                        alert('error');
+                    }
+                }
+            });
+            return false;
+        });
+    });
+    </script>
+    </body
+</html>
