@@ -1,0 +1,37 @@
+{
+  "name": "cms_installer",
+  "version": "1.0.0",
+  "description": "Installer for some popular CMS",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragenge/CMS_installer.git"
+  },
+  "keywords": [
+    "CMS",
+    "wordpress",
+    "joomla",
+    "drupal",
+    "nodejs",
+    "prestashop",
+    "puppeteer",
+    "yargs.",
+    "expressjs",
+    "novice"
+  ],
+  "author": "Timur Kurganov Maratovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dragenge/CMS_installer/issues"
+  },
+  "homepage": "https://github.com/dragenge/CMS_installer#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "puppeteer": "^2.1.1",
+    "yargs": "^15.1.0"
+  }
+}
