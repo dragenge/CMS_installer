@@ -1,3 +1,4 @@
+#CMS installer for WP, Joomla, OC, Drupal, Presta
 This is a small installer for CMS which is written in Node.js
 Using modules such as Express.js, Puppeteer, Yargs.
 To start this server for installing site management systems, you just need to initialize the node.js server, the settings file is already attached. To start, use node start or node server
